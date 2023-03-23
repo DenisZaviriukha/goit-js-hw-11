@@ -4,7 +4,7 @@ export default async function getData(key, request, i) {
     try {
         const res = await axios.get(`https://pixabay.com/api/?key=${key}&q=${request.value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${i}`)
         const picks = await res.data
-        if ( 40 <= i * 40 - picks.totalHits) {
+        if (40 <= i * 40 - picks.totalHits) {
             // console.log(picks.totalHits)
             // console.log(i * 40 - picks.totalHits)
             return Notify.info("We're sorry, but you've reached the end of search results.")

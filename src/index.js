@@ -49,10 +49,10 @@ async function render() {
         // console.log('спрятал')
     }
     
-    
     const a = await getData(apiKey, userRequest, iRender);
-
-    
+    if (!a) {
+        return
+    }
     iRender ++
     for (let i = 0; i < a.hits.length; i++) {
         let data = a.hits[i]

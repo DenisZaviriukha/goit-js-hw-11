@@ -49,6 +49,7 @@ async function render() {
         // console.log('спрятал')
     }
     
+    
     const a = await getData(apiKey, userRequest, iRender);
 
     

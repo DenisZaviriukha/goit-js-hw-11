@@ -52,7 +52,9 @@ async function render() {
     const a = await getData(apiKey, userRequest, iRender);
     if (!a) {
         return
+
     }
+    console.log('work')
     iRender ++
     for (let i = 0; i < a.hits.length; i++) {
         let data = a.hits[i]

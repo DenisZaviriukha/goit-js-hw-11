@@ -1,0 +1,32 @@
+.hidden{
+    display: none;
+} 
+
+body {
+    background: #EEF;
+    // height: auto;
+    // width: auto;
+}
+
+.search-form {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    justify-content: center;
+    display: flex;
+    gap: 10px
+}
+.search-form > input, .search-form > button {
+    
+    display: inline-block;
+    
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.photo-card {
+    margin: 10px;
+}

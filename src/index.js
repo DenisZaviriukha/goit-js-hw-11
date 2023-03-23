@@ -51,6 +51,7 @@ async function render() {
     
     const a = await getData(apiKey, userRequest, iRender);
 
+    
     iRender ++
     for (let i = 0; i < a.hits.length; i++) {
         let data = a.hits[i]

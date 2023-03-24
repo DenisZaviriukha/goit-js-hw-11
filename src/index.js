@@ -76,7 +76,9 @@ async function render() {
                         <b>Downloads ${data.downloads}</b>
                     </p>
                 </div>
-            </div>`
+            </div>`,
+            loadMore.classList.remove('hidden')
+
                         )
                     }
                 }
@@ -86,7 +88,6 @@ async function render() {
             })
         // userRequest.value = ""
         gallery.innerHTML = ""
-        loadMore.classList.remove('hidden')
         
     }
     await b()

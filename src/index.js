@@ -49,14 +49,18 @@ async function render() {
         // console.log('спрятал')
     }
     
-    const a = await getData(apiKey, userRequest, iRender);
-    if (a) {
-        console.log('work')
-        iRender++
-        for (let i = 0; i < a.hits.length; i++) {
-            let data = a.hits[i]
-            array.push(
-                `<div class="photo-card">
+    // const a = await getData(apiKey, userRequest, iRender);
+    
+    const b = async () => {
+        await getData(apiKey, userRequest, iRender)
+            .then(async (a) => {
+                
+                if (a) {
+                    iRender++
+                    for (let i = 0; i < a.hits.length; i++) {
+                        let data = a.hits[i]
+                        array.push(
+                            `<div class="photo-card">
                 <img src="${data.webformatURL}" alt="${data.tags}" loading="lazy" height="150"/>
                 <div class="info">
                     <p class="info-item">
@@ -73,15 +77,19 @@ async function render() {
                     </p>
                 </div>
             </div>`
-            )
-        }
+                        )
+                    }
+                }
+                else {
+                    return
+                }
+            })
+        // userRequest.value = ""
+        gallery.innerHTML = ""
+        loadMore.classList.remove('hidden')
+        
     }
-    else {
-        return
-    }
-    userRequest.value === ""
-    gallery.innerHTML = ""
-    await loadMore.classList.remove('hidden')
+    await b()
     // console.log('показал')
     // loadMore.classList.remove('hidden')
     // console.log(gallery.innerHTML)

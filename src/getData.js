@@ -11,12 +11,14 @@ export default async function getData(key, request, i) {
         }
         if (picks.total === 0) {
             console.log(picks.total)
-            return Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+            return Notify.failure("Sorry, there are no images matching your search query. Please try again."), []
         }
         else {
             // console.log(picks.total)
             // console.log(i * 40 - picks.totalHits)
+            
             return picks
+            
         }
     } catch (error) {
         return console.log(error)

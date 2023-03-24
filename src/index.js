@@ -54,30 +54,29 @@ async function render() {
     const b = async () => {
         await getData(apiKey, userRequest, iRender)
             .then(async (a) => {
-                
                 if (a) {
                     iRender++
                     for (let i = 0; i < a.hits.length; i++) {
                         let data = a.hits[i]
                         array.push(
                             `<div class="photo-card">
-                <img src="${data.webformatURL}" alt="${data.tags}" loading="lazy" height="150"/>
-                <div class="info">
-                    <p class="info-item">
-                        <b>Likes ${data.likes}</b>
-                    </p>
-                    <p class="info-item">
-                        <b>Views ${data.views}</b>
-                    </p>
-                    <p class="info-item">
-                        <b>Comments ${data.comments}</b>
-                    </p>                        
-                    <p class="info-item">
-                        <b>Downloads ${data.downloads}</b>
-                    </p>
-                </div>
-            </div>`,
-            loadMore.classList.remove('hidden')
+                                <img src="${data.webformatURL}" alt="${data.tags}" loading="lazy" height="150"/>
+                                <div class="info">
+                                    <p class="info-item">
+                                        <b>Likes ${data.likes}</b>
+                                    </p>
+                                    <p class="info-item">
+                                        <b>Views ${data.views}</b>
+                                    </p>
+                                    <p class="info-item">
+                                        <b>Comments ${data.comments}</b>
+                                    </p>                        
+                                    <p class="info-item">
+                                        <b>Downloads ${data.downloads}</b>
+                                    </p>
+                                </div>
+                            </div>`,
+            
 
                         )
                     }
@@ -85,6 +84,7 @@ async function render() {
                 else {
                     return
                 }
+                loadMore.classList.remove('hidden')
             })
         // userRequest.value = ""
         gallery.innerHTML = ""
